@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>返回顶部</title>
+    <style>
+        body {
+            height: 80000px;
+        }
+
+        #top {
+            position: fixed;
+            right: 30px;
+            bottom: 40px;
+            width: 150px;
+            height: 195px;
+            display: none;
+        }
+
+        #top a {
+            display: inline-block;
+            width: 150px;
+            height: 195px;
+            background: url("images/gotop.png");
+
+        }
+
+        #top a:hover {
+            background: url('images/gotop.gif') no-repeat;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+
+<body>
+    <div id="top">
+        <a href="javascript:;"></a>
+    </div>
+
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() >= 1080) {
+                    $('#top').stop().fadeIn(500);
+                } else {
+                    $('#top').stop().fadeOut(500);
+                }
+            });
+
+            $('#top').click(function () {
+                $(window).scrollTop(0);
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

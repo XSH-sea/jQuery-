@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .box {
+        width: 790px;
+        height: 340px;
+        margin: 150px auto 0;
+        position: relative;
+    }
+
+    .box ul {
+        width: 790px;
+        height: 340px;
+    }
+
+    .box ul li {
+        position: absolute;
+        display: none;
+    }
+
+    .box ul li:first-child {
+        display: block;
+    }
+
+    .arr {
+        display: none;
+    }
+
+    .box .arr_l {
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        font-size: 50px;
+        font-family: "宋体";
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        color: #666;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -25px;
+        opacity: .4;
+        cursor: pointer;
+    }
+
+    .box .arr_r {
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        font-size: 50px;
+        font-family: "宋体";
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        color: #666;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -25px;
+        opacity: .4;
+        cursor: pointer;
+    }
+</style>
+
+<script src="jquery-1.12.4.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+            <li><img src="images/6.jpg" alt=""></li>
+            <li><img src="images/7.jpg" alt=""></li>
+            <li><img src="images/8.jpg" alt=""></li>
+        </ul>
+
+        <div class="arr">
+            <span class="arr_l">&lt;</span>
+            <span class="arr_r">&gt;</span>
+        </div>
+    </div>
+
+    <script>
+        $('.box').mousemove(function () {
+            $('.arr').show(200);
+        });
+
+        $('.box').mouseleave(function () {
+            $('.arr').hide(200);
+        });
+
+        var index = 0;
+
+        $('.arr_r').click(function () {
+            index = index < $('.box ul li').length - 1 ? index + 1 : 0;
+            $('.box ul li').eq(index).fadeIn(500).siblings().fadeOut(500);
+        });
+
+        $('.arr_l').click(function () {
+            index = index > 0 ? index - 1 : $('.box ul li').length - 1;
+            $('.box ul li').eq(index).fadeIn(500).siblings().fadeOut(500);
+        });
+    </script>
+</body>
+
+</html>

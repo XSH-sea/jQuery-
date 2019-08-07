@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手风琴效果</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .parentWrap {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 100px auto 0;
+        }
+
+        .parentWrap .groupTitle {
+            width: 198px;
+            height: 18px;
+            display: block;
+            border: 1px solid #999;
+            background-color: #456789;
+            text-align: center;
+            line-height: 18px;
+            cursor: pointer;
+        }
+
+        .parentWrap .menuGroup div {
+            width: 200px;
+            height: 220px;
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+
+</head>
+
+<body>
+    <ul class="parentWrap">
+        <li class="menuGroup">
+            <span class="groupTitle">标题1</span>
+            <div>我是弹出来的div1</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题2</span>
+            <div>我是弹出来的div2</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题3</span>
+            <div>我是弹出来的div3</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题4</span>
+            <div>我是弹出来的div4</div>
+        </li>
+    </ul>
+
+    <script>
+        $('.groupTitle').click(function () {
+            $(this).next().slideDown().parent().siblings().children('div').slideUp();
+        });
+    </script>
+
+</body>
+
+</html>

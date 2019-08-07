@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>五角星评分</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ul {
+            margin: 200px 500px;
+        }
+
+        li {
+            float: left;
+            font-size: 40px;
+            color: red;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+
+<body>
+
+    <ul>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+    <script>
+        $('ul li').mouseenter(function () {
+            $(this).text('★').prevAll().text('★');
+            $(this).nextAll().text('☆');
+        })
+
+        $('ul li').click(function () {
+            $(this).addClass('current').siblings().removeClass('current');
+        });
+
+        $('ul').mouseleave(function () {
+            $(this).children().text('☆');
+            $('.current').text('★').prevAll().text('★');
+        });
+    </script>
+
+</body>
+
+</html>
